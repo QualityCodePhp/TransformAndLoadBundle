@@ -23,11 +23,11 @@ class QualityCodeTransformAndLoadExtension extends Extension
         $config = $this->processConfiguration($configuration, $configs);
         if (array_key_exists('imports', $config)) {
             foreach ($config['imports'] as $importName => $importConfig) {
-                $container->setParameter('qltyc_tl.imports.'.strtolower($importName), $importConfig);
+                $container->setParameter('qltyc_tl.imports.' . strtolower($importName), $importConfig);
             }
         }
 
-        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('services.yml');
     }
 
