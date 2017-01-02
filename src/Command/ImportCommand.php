@@ -41,16 +41,16 @@ class ImportCommand extends ContainerAwareCommand
         $schema = $input->getArgument('schema');
         $fileName = $input->getArgument('file');
 
-        $schemaDefinition = $this->getContainer()->getParameter('qltyc_tl.imports.'.$schema);
+        $schemaDefinition = $this->getContainer()->getParameter('qltyc_tl.imports.' . $schema);
 
         $begin = new \DateTime();
-        $output->writeln('<comment>Début de l\'import du fichier '.$fileName.' avec le schema '.$schema.' à '.$begin->format('d-m-Y G:i:s').'</comment>');
+        $output->writeln('<comment>Début de l\'import du fichier ' . $fileName . ' avec le schema ' . $schema . ' à ' . $begin->format('d-m-Y G:i:s') . '</comment>');
 
         $this->getContainer()->get('qltyc.tl.import')->import($schemaDefinition, $fileName, $output);
 
         $end = new \DateTime();
         $output->writeln('');
-        $output->writeln('<comment>L\'import du fichier '.$fileName.' utilisant le schema '.$schema.' est terminé à '.$end->format('d-m-Y G:i:s').'</comment>');
+        $output->writeln('<comment>L\'import du fichier ' . $fileName . ' utilisant le schema ' . $schema . ' est terminé à ' . $end->format('d-m-Y G:i:s') . '</comment>');
 
         $this->release();
     }
@@ -118,7 +118,7 @@ class ImportCommand extends ContainerAwareCommand
     private function checkSchema(InputInterface $input, OutputInterface $output)
     {
         $schema = $input->getArgument('schema');
-        if (!$this->getContainer()->hasParameter('qltyc_tl.imports.'.$schema)) {
+        if (!$this->getContainer()->hasParameter('qltyc_tl.imports.' . $schema)) {
             $output->writeln('This schema doesn\'t exist !');
 
             return 1;
