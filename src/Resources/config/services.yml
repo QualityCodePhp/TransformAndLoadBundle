@@ -1,0 +1,19 @@
+services:
+    qltyc.tl.csvtoarray:
+        class: QualityCode\TransformAndLoadBundle\Services\ConvertCsvToArray
+        lazy:  true
+    qltyc.tl.import:
+        class: QualityCode\TransformAndLoadBundle\Services\Import
+        arguments: ['@doctrine.orm.entity_manager', '@qltyc.tl.import.schemadefinitiongroupbyentity', '@qltyc.tl.import.getdatafromcsvfile', '@qltyc.tl.import.transformer.factory']
+        lazy:  true
+    qltyc.tl.import.transformer.factory:
+        class: QualityCode\TransformAndLoadBundle\Import\Transformer\TransformerFactory
+        arguments: ['@doctrine.orm.entity_manager']
+        lazy:  true
+    qltyc.tl.import.getdatafromcsvfile:
+        class: QualityCode\TransformAndLoadBundle\Services\Import\GetDataFromCsvFile
+        arguments: ['@qltyc.tl.csvtoarray']
+        lazy:  true
+    qltyc.tl.import.schemadefinitiongroupbyentity:
+        class: QualityCode\TransformAndLoadBundle\Services\Import\SchemaDefinitionGroupByEntity
+        lazy:  true
