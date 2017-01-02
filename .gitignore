@@ -1,5 +1,7 @@
 # Cache and logs (Symfony2)
+/tests/App/cache/*
 /app/cache/*
+/tests/App/logs/*
 /app/logs/*
 !app/cache/.gitkeep
 !app/logs/.gitkeep

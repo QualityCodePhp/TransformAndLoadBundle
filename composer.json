@@ -1,0 +1,39 @@
+{
+    "name": "qualitycode/transform-and-load-bundle",
+    "type": "symfony-bundle",
+    "description": "Transform and Load data in your doctrine entities",
+    "keywords": ["import","doctrine"],
+    "homepage": "https://github.com/QualityCodePhp/TransformAndLoadBundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Flavien METIVIER",
+            "email": "flavien.metivier@quaity-code.fr",
+            "homepage": "http://www.quality-code.fr",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=7.0",
+        "symfony/http-kernel": "~3.2",
+        "symfony/framework-bundle": "^3.2",
+        "doctrine/orm": "^2.5",
+        "doctrine/doctrine-bundle": "^1.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "QualityCode\\TransformAndLoadBundle\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "QualityCode\\TransformAndLoadBundle\\Tests\\": "tests/"
+        }
+    },
+    "require-dev": {
+        "symfony/yaml": "~3.2",
+        "symfony/console": "~3.2",
+        "phpunit/phpunit": "^5.7",
+        "symfony/process": "~3.2"
+    }
+}
